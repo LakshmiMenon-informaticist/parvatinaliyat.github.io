@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f7f7fb;
+    color: #222;
+}
+
+#hero {
+    padding: 80px 20px;
+    text-align: center;
+    background: #e7f0ff;
+}
+
+#about {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
