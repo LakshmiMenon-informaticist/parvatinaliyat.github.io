@@ -15,3 +15,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// --- Hero image slider (auto-rotate every 4s) ---
+const slider = document.querySelector(".hero-slider");
+if (slider) {
+  const slides = slider.querySelectorAll("img");
+  let current = 0;
+
+  if (slides.length > 0) {
+    slides[0].classList.add("active");
+
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, 4000);
+  }
+}
+
+
