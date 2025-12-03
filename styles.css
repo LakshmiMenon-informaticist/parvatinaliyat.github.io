@@ -29,7 +29,7 @@
 body {
   margin: 0;
   font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
+  background: radial-gradient(circle at top, #f7f2ff 0, #ffffff 55%);
   color: var(--text);
   line-height: 1.6;
 }
@@ -140,8 +140,56 @@ p {
 /* Hero */
 
 .hero {
+  position: relative;
   padding: 80px 0 72px;
+  overflow: hidden; /* so blobs don't spill out on edges */
 }
+
+/* Animated background glows behind hero */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;               /* stays behind text + image */
+  border-radius: 999px;
+  filter: blur(40px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Left glow */
+.hero::before {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle at center, rgba(106, 56, 255, 0.35), rgba(243, 234, 255, 0));
+  top: -80px;
+  left: -40px;
+  animation: floatGlow1 18s ease-in-out infinite alternate;
+}
+
+/* Right glow */
+.hero::after {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle at center, rgba(180, 120, 255, 0.3), rgba(243, 234, 255, 0));
+  bottom: -120px;
+  right: -60px;
+  animation: floatGlow2 22s ease-in-out infinite alternate;
+}
+
+/* Keyframes for slow movement */
+@keyframes floatGlow1 {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(40px, 30px); }
+  100% { transform: translate(10px, 60px); }
+}
+
+@keyframes floatGlow2 {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(-30px, -40px); }
+  100% { transform: translate(-60px, -10px); }
+}
+
 
 .hero-inner {
   display: grid;
