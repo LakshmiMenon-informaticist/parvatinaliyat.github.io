@@ -142,8 +142,13 @@ p {
 .hero {
   position: relative;
   padding: 80px 0 72px;
-  overflow: hidden; /* so blobs don't spill out on edges */
+  overflow: hidden;
+  min-height: calc(100vh - 64px); /* full screen minus header height */
+  
+  display: flex;
+  align-items: center;           /* vertically center content */
 }
+
 
 /* Animated background glows behind hero */
 .hero::before,
