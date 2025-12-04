@@ -76,13 +76,9 @@ p {
 /* Header */
 
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: #ffffffcc;  /* translucent white header */
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
+  display: none;
 }
+
 
 .header-inner {
   display: flex;
